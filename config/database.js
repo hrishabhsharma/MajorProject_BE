@@ -6,11 +6,7 @@ mongoose.set('strictQuery', false);
 
 const connect = async () => {
   try {
-    await mongoose.connect(process.env.DB_URL, {
-      connectTimeoutMS: 10000,
-      minPoolSize: 100,
-      socketTimeoutMS: 0,
-    });
+    await mongoose.connect(process.env.DB_URL);
 
     console.log('Successfully Established Connection with MongoDB');
   } catch (error) {
