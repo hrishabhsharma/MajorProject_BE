@@ -16,7 +16,7 @@ const signup = async (req, res) => {
     const saltRound = await bcrypt.genSalt(10)
     const hashPass = await bcrypt.hash(password, saltRound)
 
-    const token = jwt.sign({ email }, process.env.secretKey, { expiresIn: "24h" })
+    const token = jwt.sign({ email }, process.env.SECRET_KEY, { expiresIn: "24h" })
 
     const temp = { name, phone, email, password: hashPass }
     const user = await User.create(temp)
@@ -48,7 +48,7 @@ const login = async (req, res) => {
       return res.status(403).send({ msg: "Password is Wrong" })
     }
 
-    const token = jwt.sign({ email }, process.env.secretKey, { expiresIn: "24h" })
+    const token = jwt.sign({ email }, process.env.SECRET_KEY, { expiresIn: "24h" })
 
     return res.status(200).send({
       msg: "User has logged in successfully",
