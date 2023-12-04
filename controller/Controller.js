@@ -65,7 +65,7 @@ const login = async (req, res) => {
 
 const courses = async (req, res) => {
   try {
-    const Data = await Course.find({}).lean();
+    const Data = await Course.find().lean();
     res.send(Data);
   }
   catch (err) {
