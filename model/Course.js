@@ -1,4 +1,4 @@
-const mongoose = require("../config/Database");
+const mongoose = require("../config/database");
 
 const CourseSchema = mongoose.Schema({
   id: {
